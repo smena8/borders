@@ -86,13 +86,14 @@
     	let parentSectionElemLovelace = codeBlock.parentElement.closest('section');    
   		let parentContentElemLovelace = codeBlock.parentElement.closest('.content');
         addBorders(parentContentElemLovelace, codeBlock);
-    	parentContentElemLovelace.style.paddingLeft = '1em';
-    	parentContentElemLovelace.style.paddingRight = '1em';
     	parentContentElemLovelace.style.padding = '1em';
     	let parentContentWrapElemLovelace = codeBlock.parentElement.closest('.content-wrapper');
         parentSectionElemLovelace.style.minHeight = 'max-content';
-    	parentContentWrapElemLovelace.style.paddingTop = 0;
-    	parentContentWrapElemLovelace.style.paddingBottom = 0;    
+    	if (codeBlock.getAttribute("data-lovelace-border-gap") === 'no') {
+    		parentContentWrapElemLovelace.style.paddingTop = 0;
+    		parentContentWrapElemLovelace.style.paddingBottom = 0;
+		} 
+    	    
   }
   
   function addBorders(element, codeBlock) {    
